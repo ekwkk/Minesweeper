@@ -80,6 +80,16 @@ public boolean isWon()
 
 public void displayLosingMessage()
 {
+    for (int r = 0; r < NUM_ROWS; r++)
+    {
+        for (int c = 0; c < NUM_COLS; c++)
+        {
+            if (bombs.contains(buttons[r][c]))
+                buttons[r][c].clicked = true;
+        }
+    }
+
+
     buttons[9][6].setLabel("Y");
     buttons[9][7].setLabel("O");
     buttons[9][8].setLabel("U");
@@ -89,20 +99,9 @@ public void displayLosingMessage()
     buttons[9][12].setLabel("S");
     buttons[9][13].setLabel("T");
     buttons[9][14].setLabel(" ");
-    buttons[9][15].setLabel(":");
-    buttons[9][16].setLabel("(");
+    buttons[9][15].setLabel(":(");
 
-    for (int r = 0; r < NUM_ROWS; r++)
-    {
-        for (int c = 0; c < NUM_COLS; c++)
-        {
-            if (buttons[r][c].isValid(r,c))
-            {
-                buttons[r][c].setClicked(true);
-                System.out.println("it's working");
-            }
-        }
-    }
+
 }
 
 
@@ -223,10 +222,6 @@ public class MSButton
 
 
 
-    public void setClicked(boolean c)
-    {
-        clicked = c;
-    }
 
 
 
