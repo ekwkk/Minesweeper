@@ -53,6 +53,9 @@ public void draw ()
     background( 0 );
     if(isWon())
         displayWinningMessage();
+
+    // fill(255);
+    // rect(150,430,100,70,7);
 }
 
 
@@ -173,7 +176,7 @@ public class MSButton
         else if (bombs.contains(this))
             displayLosingMessage();
         else if (countBombs(r,c) > 0)
-            setLabel(Integer.toString(countBombs(r,c)));
+            setLabel(""+(countBombs(r,c)));
         else
         {
             if(c>0 && buttons[r][c-1].clicked == false)
